@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Postcode
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="/apply/v1/date-of-birth">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">What is the sort code of the bank account your PIP or DLA is paid into?</h1>
+      <span id="sortcode-hint" class="govuk-hint">
+        For example, 01 02 00
+      </span>
+      <form class="form" action="/apply/v1/account-no" method="post">
+
+        <div class="govuk-form-group">
+
+        <input class="govuk-input govuk-input--width-10" id="width-10-" name="width-10" type="text">
+        </div>
+
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
