@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Name
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="/apply/v1/start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Prove who you are</h1>
+
+      <form class="form" action="/apply/v1/signed-in" method="post">
+
+        <p>[awaiting confirmation of authentication method]</p>
+        <div class="govuk-form-group">
+        <!-- <label class="govuk-label" for="width-20">
+        Full name
+        </label> -->
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        </div>
+
+
+        <button class="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
