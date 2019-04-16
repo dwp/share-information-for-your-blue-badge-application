@@ -45,6 +45,10 @@
   }) }}
 {% endblock %}
 
+{% block beforeContent %}
+{% include './includes/phase-banner.njk' %}
+{% endblock %}
+
 {% if useAutoStoreData %}
   {% block footer %}
     {{ govukFooter({
