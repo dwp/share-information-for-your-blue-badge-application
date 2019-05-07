@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Complete
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">Sent</h1>
+        <div class="govuk-panel__body">
+          Your PIP information has been sent to your local council.
+        </div>
+      </div>
+
+      <!-- <p>You'll get a confirmation text message in the next 24 hours.</p> -->
+      <!-- Conditioinal message depending on if user has given mobile numbner or email address -->
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>Your local council will let you know the outcome of your Blue Badge application in 6 to 12 weeks or contact you for more information.</p>
+      <p>Contact them if you haven’t heard back within 12 weeks.</p>
+
+      <p><a href="https://www.gov.uk/blue-badge-scheme-information-council">
+        Find your local council
+      </a></p>
+      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

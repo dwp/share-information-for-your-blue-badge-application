@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Summary
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="sortcode">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Information for your Blue Badge application</h1>
+
+<form class="form" action="confirmation" method="post">
+      <dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Name
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Anne Pitman
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of birth
+    </dt>
+    <dd class="govuk-summary-list__value">
+      19 January 1966
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Benefit type
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Personal Independence Payment (PIP)
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Moving around
+    </dt>
+    <dd class="govuk-summary-list__value">
+      12 points
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      PIP end date
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1 January 2020
+    </dd>
+  </div>
+</dl>
+
+
+        <button class="govuk-button">Send to your local council</button>
+
+      </form>
+    </div>
+    <div class="govuk-grid-column-one-third">
+  </div>
+
+{% endblock %}
