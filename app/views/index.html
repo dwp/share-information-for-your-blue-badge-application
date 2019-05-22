@@ -2,7 +2,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK Prototype Kit
+  Share your PIP or DLA information
 {% endblock %}
 
 {% block content %}
@@ -10,13 +10,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        Share information for your Blue Badge application
+        Share your PIP or DLA information
         <span class="govuk-caption-xl">v2</span>
       </h1>{{releaseVersion | log }}
       <h2 class="govuk-heading-s">Created: 7 May 2019</h2>
 
       <p>Changes:</p>
       <ul class="govuk-list govuk-list--bullet">
+        <li>changed service name and start page to stop users thinking they're applying for a Blue Badge</li>
         <li>removed reference code from confirmation page</li>
         <li>changed 'Complete' to 'Sent' on confirmation page</li>
         <li>changed 'local council' to 'council'</li>
