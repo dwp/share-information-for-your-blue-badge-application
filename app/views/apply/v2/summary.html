@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="sortcode">Back</a>
+  <a class="govuk-back-link" href="view-info">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -44,7 +44,7 @@
   </div>
   <div class="govuk-summary-list__row">
     <dt class="govuk-summary-list__key">
-      Moving around
+      Moving around score
     </dt>
     <dd class="govuk-summary-list__value">
       12 points
@@ -59,6 +59,24 @@
     </dd>
   </div>
 </dl>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <p class="govuk-fieldset__heading">
+        The Department for Work and Pensions will send this information to your council so they can process your Blue Badge.
+      </p>
+    </legend>
+    <div class="govuk-checkboxes govuk-checkboxes--small">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox" value="understand">
+        <label class="govuk-label govuk-checkboxes__label" for="organisation-1">
+          I understand
+        </label>
+      </div>
+    </div>
+  </div>
+
 
 
         <button class="govuk-button">Send to your council</button>
