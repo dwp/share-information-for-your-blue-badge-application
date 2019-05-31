@@ -26,13 +26,13 @@ router.post('/apply/v2/data-match-1', (req, res, next) => {
         })
     } else {
         let match = true;
-        if(req.session.data['first-name'].toLowerCase() != 'joe') match = false;
-        if(req.session.data['last-name'].toLowerCase() != 'bloggs') match = false;
+        if(req.session.data['first-name'].toLowerCase() != 'tony') match = false;
+        if(req.session.data['last-name'].toLowerCase() != 'smith') match = false;
         if(req.session.data['postcode'].toUpperCase().replace(/\s/g, '') != 'A11AA') match = false;
         if(parseInt(req.session.data['dob-day'], 10) != '1') match = false;
         if(parseInt(req.session.data['dob-month'], 10) != '4') match = false;
         if(parseInt(req.session.data['dob-year'], 10) != '1980') match = false;
-        
+
         if(match){
             res.status(302).redirect('/apply/v2/nino');
         } else {
