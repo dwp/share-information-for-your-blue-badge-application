@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Data mismatch
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<!--<a class="govuk-back-link" href="start">Back</a>-->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Sorry, there has been an issue</h1>
+    <p class="govuk-body">
+      There has been an issue matching the credentials you have entered.
+    </p>
+    <p class="govuk-body">
+      Second paragraph of copy that may, or may not be needed. Delete if neccessary.
+    </p>
+    <a class="govuk-link" href="data-match-1?data=clear">Try again [Copy TBC]</a>
+  </div>
+</div>
+
+{% endblock %}

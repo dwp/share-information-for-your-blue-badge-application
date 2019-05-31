@@ -5,42 +5,57 @@
 {% endblock %}
 
 {% block beforeContent %}
-  {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="start">Back</a>
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="start">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Enter your personal details</h1>
-
+    {% if error %}
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#organisation-1">Select that you understand</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% endif %}
+    
+    <h1 class="govuk-heading-xl">Enter your personal details</h1>
+    <form class="form" action="data-match-1" method="post">
       <div class="govuk-form-group">
-      <label class="govuk-label" for="width-20">
-      First name
-      </label>
-      <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        <label class="govuk-label" for="width-20">
+          First name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="first-name" type="text" value="{{data['first-name']}}">
       </div>
 
       <div class="govuk-form-group">
-      <label class="govuk-label" for="width-20">
-      Last name
-      </label>
-      <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        <label class="govuk-label" for="width-20">
+          Last name
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="last-name" type="text" value="{{data['last-name']}}">
       </div>
 
       <div class="govuk-form-group">
-      <label class="govuk-label" for="width-20">
-      Postcode
-      </label>
-      <input class="govuk-input govuk-input--width-10" id="width-10" name="width-10" type="text">
+        <label class="govuk-label" for="width-20">
+          Postcode
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="width-10" name="postcode" type="text" value="{{data['postcode']}}">
       </div>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
           <label class="govuk-label" for="width-20">
-          Date of birth
+            Date of birth
           </label>
           <span id="dob-hint" class="govuk-hint">
             For example, 31 3 1980
@@ -51,7 +66,8 @@
                 <label class="govuk-label govuk-date-input__label" for="dob-day">
                   Day
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="number" pattern="[0-9]*">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day"
+                  type="number" pattern="[0-9]*" value="{{data['dob-day']}}">
               </div>
             </div>
             <div class="govuk-date-input__item">
@@ -59,7 +75,8 @@
                 <label class="govuk-label govuk-date-input__label" for="dob-month">
                   Month
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="number" pattern="[0-9]*">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month"
+                  type="number" pattern="[0-9]*" value="{{data['dob-month']}}">
               </div>
             </div>
             <div class="govuk-date-input__item">
@@ -67,40 +84,41 @@
                 <label class="govuk-label govuk-date-input__label" for="dob-year">
                   Year
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="number" pattern="[0-9]*">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year"
+                  type="number" pattern="[0-9]*" value="{{data['dob-year']}}">
               </div>
             </div>
           </div>
         </fieldset>
       </div>
 
-      <div class="govuk-form-group">
+      <div class="govuk-form-group {{ 'govuk-form-group--error' if error }}">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
             <p class="govuk-fieldset__heading">
               If you continue, the Department for Work and Pensions (DWP) will search information it holds about you. This is to find relevant information about benefits you get from DWP that might help you get a Blue Badge.
             </p>
           </legend>
+
+          {% if error %}
+          <span id="understand-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select that you understand
+          </span>
+          {% endif %}
+
           <div class="govuk-checkboxes govuk-checkboxes--small">
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox" value="understand">
+              <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox"
+                value="understand" {{ 'checked' if data.organisation }}>
               <label class="govuk-label govuk-checkboxes__label" for="organisation-1">
                 I understand
               </label>
             </div>
           </div>
-        </div>
-
-
-        <form class="form" action="nino" method="post">
-
-
-
-
-        <button class="govuk-button">Continue</button>
-
-      </form>
-    </div>
+      </div>
+      <button class="govuk-button">Continue</button>
+    </form>
   </div>
+</div>
 
 {% endblock %}

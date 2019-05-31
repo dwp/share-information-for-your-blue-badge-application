@@ -1,89 +1,111 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Summary
+Summary
 {% endblock %}
 
 {% block beforeContent %}
-  {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="last-payment">Back</a>
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="last-payment">Back</a>
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">Information for your Blue Badge application</h1>
-
-<form class="form" action="contact-details" method="post">
-      <dl class="govuk-summary-list">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Name
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Anne Pitman
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Date of birth
-    </dt>
-    <dd class="govuk-summary-list__value">
-      19 January 1966
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Benefit type
-    </dt>
-    <dd class="govuk-summary-list__value">
-      Personal Independence Payment (PIP)
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Moving around score
-    </dt>
-    <dd class="govuk-summary-list__value">
-      12 points
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      PIP end date
-    </dt>
-    <dd class="govuk-summary-list__value">
-      1 January 2020
-    </dd>
-  </div>
-</dl>
-
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      <p class="govuk-fieldset__heading">
-        The Department for Work and Pensions will share this information with your council so they can process your Blue Badge.
-      </p>
-    </legend>
-    <div class="govuk-checkboxes govuk-checkboxes--small">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox" value="understand">
-        <label class="govuk-label govuk-checkboxes__label" for="organisation-1">
-          I understand
-        </label>
+    {% if error %}
+    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="error-summary">
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#declaration-1">Select that you understand</a>
+          </li>
+        </ul>
       </div>
     </div>
+    {% endif %}
+
+    <h1 class="govuk-heading-xl">Information for your Blue Badge application</h1>
+
+    <form class="form" action="summary" method="post">
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Joe Bloggs
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            1 April 1980
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Benefit type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Personal Independence Payment (PIP)
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Moving around score
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 points
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            PIP end date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            1 January 2020
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-form-group {{ 'govuk-form-group--error' if error }}">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <p class="govuk-fieldset__heading">
+              The Department for Work and Pensions will share this information with your council so they can process
+              your Blue Badge.
+            </p>
+          </legend>
+          {% if error %}
+          <span id="understand-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Select that you understand
+          </span>
+          {% endif %}
+          <div class="govuk-checkboxes govuk-checkboxes--small">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="declaration-1" name="declaration" type="checkbox"
+                value="understand">
+              <label class="govuk-label govuk-checkboxes__label" for="declaration-1">
+                I understand
+              </label>
+            </div>
+          </div>
+      </div>
+
+
+
+      <button class="govuk-button">Share with your council</button>
+
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third">
   </div>
 
-
-
-        <button class="govuk-button">Share with your council</button>
-
-      </form>
-    </div>
-    <div class="govuk-grid-column-one-third">
-  </div>
-
-{% endblock %}
+  {% endblock %}
