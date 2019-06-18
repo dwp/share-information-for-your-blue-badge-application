@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Sort code
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="nino">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="partner-dob" method="post">
+      <h1 class="govuk-heading-xl">What is the sort code of the bank account your benefit is paid into?</h1>
+      <span id="sortcode-hint" class="govuk-hint">
+        For example, 01 02 00
+      </span>
+      <form class="form" action="summary" method="post">
+
+        <div class="govuk-form-group">
+
+        <input class="govuk-input govuk-input--width-10" id="width-10-" name="width-10" type="text">
+        </div>
+
+
+        <button class="govuk-button">Continue</button>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
