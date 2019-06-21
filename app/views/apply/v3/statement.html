@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Statement
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="data-match-dob">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="prove-1" method="post">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">How we'll find your benefit information</h1>
+
+    <div class="govuk-form-group">
+
+
+      <p>If you continue:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the Department for Work and Pensions will search its records to find your benefit information</li>
+        <li>you'll be asked a few questions to prove who you are</li>
+        </ul>
+    </div>
+
+      <button class="govuk-button">I understand, continue</button>
+
+  </div>
+
+{% endblock %}
