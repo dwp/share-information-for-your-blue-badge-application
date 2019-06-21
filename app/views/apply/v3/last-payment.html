@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="child-name">Back</a>
+  <a class="govuk-back-link" href="benefits-select">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -14,11 +14,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="summary" method="post">
+      <form class="form" action="contact-pref" method="post">
 
         <div class="govuk-form-group">
+          <span class="govuk-caption-xl">Prove who you are</span>
     		  <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
-    		    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+    		    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
     		      <h1 class="govuk-fieldset__heading">
     		        When did your last benefit payment go in your bank account?
     		      </h1>
@@ -55,8 +56,8 @@
     		  </fieldset>
     		</div>
 
-				<a href="summary" role="button" class="govuk-button">Continue</a>
-        <!-- <button class="govuk-button">Continue</button> -->
+
+        <button class="govuk-button">Continue</button>
 
       </form>
     </div>
