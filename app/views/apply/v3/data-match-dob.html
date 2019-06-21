@@ -7,6 +7,7 @@
 {% block beforeContent %}
 {% include '../../includes/phase-banner.njk' %}
 <a class="govuk-back-link" href="data-match-postcode">Back</a>
+<form class="form" action="statement" method="post">
 {% endblock %}
 
 {% block content %}
@@ -14,8 +15,10 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
+
+
     <div class="govuk-form-group">
-      <h1 class="govuk-heading-xl">What is your date of birth?</h1>
+      <h1 class="govuk-heading-l">What is your date of birth?</h1>
       <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
         <span id="dob-hint" class="govuk-hint">
           For example, 31 3 1980
