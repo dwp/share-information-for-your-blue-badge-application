@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Prove ID
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="statement">Back</a>
+{% endblock %}
+
+{% from "date-input/macro.njk" import govukDateInput %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <span class="govuk-caption-xl">Prove who you are</span>
+
+    <form id="form" method="post" action="prove-1">
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Are you married?
+            </h1>
+          </legend>
+
+
+
+          <div class="govuk-radios" data-module="radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="marriage-conditional-1" name="how-contacted" type="radio" value="email" aria-controls="conditional-marriage-conditional-1" aria-expanded="false">
+              <label class="govuk-label govuk-radios__label" for="marriage-conditional-1">
+                Yes
+              </label>
+            </div>
+
+
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="marriage-conditional-2" name="how-contacted" type="radio" value="none" data-aria-controls="conditional-marriage-conditional-2">
+              <label class="govuk-label govuk-radios__label" for="marriage-conditional-2">
+                No
+              </label>
+            </div>
+
+          </div>
+
+
+
+
+        </fieldset>
+</div>
+
+
+<input type="submit" class="govuk-button" value="Continue" id="submit">
+
+
+  </div>
+  {% endblock %}
+
+  {% block pageScripts %}
+  <script>
+    $( document ).ready(function() {
+      $('#submit').on('click', function(e){
+        e.preventDefault();
+
+        if($('#marriage-conditional-1').is(':checked')) window.location = 'marriage-date'
+        if($('#marriage-conditional-2').is(':checked')) window.location = 'gp-surgery'
+      })
+    })
+  </script>
+
+{% endblock %}
