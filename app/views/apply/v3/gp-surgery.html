@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Date of birth
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="marriage-date">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-xl">Prove who you are</span>
+  <h1 class="govuk-heading-l">What is the name of your GP surgery?</h1>
+    <div class="govuk-form-group">
+
+
+      <form class="form" action="carers-name" method="post">
+          <input class="govuk-input govuk-input--width-20" id="width-20" name="full-name" type="text" value="{{data['full-name']}}">
+        </div>
+
+      <button class="govuk-button">Continue</button>
+
+  </div>
+  </div>
+
+{% endblock %}
