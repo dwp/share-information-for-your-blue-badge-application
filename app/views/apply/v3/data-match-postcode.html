@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Postcode
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="data-match-name">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">What is your postcode?</h1>
+    <form class="form" action="data-match-dob" method="post">
+      <div class="govuk-form-group">
+        <input class="govuk-input govuk-input--width-10" id="width-10" name="full-name" type="text" value="{{data['data-match-postcode']}}">
+      </div>
+      <button class="govuk-button">Continue</button>
+
+  </div>
+
+{% endblock %}
