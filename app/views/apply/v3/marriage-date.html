@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Date of birth
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="prove-1">Back</a>
+<form class="form" action="gp-surgery" method="post">
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Prove who you are</span>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-heading-l">When did you get married?</h1>
+      <fieldset class="govuk-fieldset" aria-describedby="dob-hint" role="group">
+        <span id="dob-hint" class="govuk-hint">
+          For example, 31 3 1980
+        </span>
+        <div class="govuk-date-input" id="dob">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day"
+                type="number" pattern="[0-9]*" value="{{data['dob-day']}}">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month"
+                type="number" pattern="[0-9]*" value="{{data['dob-month']}}">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year"
+                type="number" pattern="[0-9]*" value="{{data['dob-year']}}">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+      <button class="govuk-button">Continue</button>
+
+  </div>
+
+{% endblock %}
