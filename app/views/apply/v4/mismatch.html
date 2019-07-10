@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Data mismatch
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<!--<a class="govuk-back-link" href="start">Back</a>-->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">No record found</h1>
+
+    <p>There is no benefit record for the details you've entered.</p>
+
+    <a class="govuk-link" href="data-match-1?data=clear">Try again</a>
+  </div>
+</div>
+
+{% endblock %}

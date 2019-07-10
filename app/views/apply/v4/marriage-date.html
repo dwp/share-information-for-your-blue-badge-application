@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Date of birth
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="prove-1">Back</a>
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="gp-surgery" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-xl">Prove who you are</span>
+
+            {{ govukDateInput({
+              id: "marriage-date",
+              namePrefix: "marriage-date",
+              fieldset: {
+                legend: {
+                  text: "When did you get married?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              hint: {
+                text: "For example, 31 3 1980"
+              },
+              items: [
+                {
+                  name: "Day",
+                  classes: "govuk-input--width-2"
+                },
+                {
+                  name: "Month",
+                  classes: "govuk-input--width-2"
+                },
+                {
+                  name: "Year",
+                  classes: "govuk-input--width-4"
+                }
+              ]
+            }) }}
+
+        <button class="govuk-button">Continue</button>
+
+    </div>
+  </div>
+</form>
+{% endblock %}

@@ -52,6 +52,13 @@ router.get('/examples/template-data', function (req, res) {
   res.render('examples/template-data', { 'name': 'Foo' })
 })
 
+router.get('summary', function (req, res) {
+  req.session.data['first-name']
+  req.session.data['last-name']
+})
+
+
+
 // Branching
 router.post('/examples/branching/over-18-answer', function (req, res) {
   // Get the answer from session data

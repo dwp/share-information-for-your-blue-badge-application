@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Prove ID
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Sign in</h1>
+
+      <form class="form" action="third-party-branch" method="post">
+
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="width-20">
+        Government Gateway user ID
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="width-20">
+        Password
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        </div>
+
+
+        <button class="govuk-button">Continue</button>
+
+        <p><a href="#">Create sign in details</a></p>
+        <p><a href="#">Forgotten password</a></p>
+        <p><a href="#">Forgotten Government Gateway user ID</a></p>
+        <p><a href="#">Get help</a></p>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

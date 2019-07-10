@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Prove ID
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="statement">Back</a>
+{% endblock %}
+
+{% from "date-input/macro.njk" import govukDateInput %}
+
+{% block content %}
+<form id="form" method="post" action="prove-1"></form>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Prove who you are</span>
+
+              {{ govukRadios({
+                idPrefix: "marriage-conditional",
+                name: "married",
+                fieldset: {
+                  legend: {
+                    text: "Are you married?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                  }
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no",
+                    text: "No"
+                  },
+                  {
+                    value: "widow-widower",
+                    text: "I'm a widow/widower"
+                  }
+                ]
+              }) }}
+
+        <input type="submit" class="govuk-button" value="Continue" id="submit">
+
+      </div>
+  </div>
+</form>
+
+{% endblock %}
+
+
+
+{% block pageScripts %}
+  <script>
+    $( document ).ready(function() {
+      $('#submit').on('click', function(e){
+        e.preventDefault();
+
+        if($('#marriage-conditional-1').is(':checked')) window.location = 'marriage-date'
+        if($('#marriage-conditional-2').is(':checked')) window.location = 'gp-surgery'
+        if($('#marriage-conditional-3').is(':checked')) window.location = 'gp-surgery'
+      })
+    })
+  </script>
+
+{% endblock %}
