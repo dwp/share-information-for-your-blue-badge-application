@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GP gp-surgery
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="prove-1">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="carers-name-uhp" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-xl">Prove who you are</span>
+
+          {{ govukInput({
+            label: {
+              text: "What is the name of your GP surgery?",
+              isPageHeading: true,
+              classes: "govuk-label--l"
+            },
+            classes: "govuk-input--width-20",
+            id: "postcode",
+            name: "postcode"
+          }) }}
+
+          <p><a href="carers-name">I don't know the name of my GP surgery</a></p>
+
+        <button class="govuk-button">Continue</button>
+
+        
+
+      </div>
+    </div>
+</form>
+
+{% endblock %}
