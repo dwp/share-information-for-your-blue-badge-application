@@ -10,30 +10,30 @@
 {% endblock %}
 
 {% block content %}
-
+<form class="form" action="data-match-dob" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <div class="govuk-form-group">
         <span class="govuk-caption-xl">Prove who you are</span>
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h1 class="govuk-fieldset__heading">
-            What is your National Insurance number?
-          </h1>
-        </legend>
-        <span id="national-insurance-number-hint" class="govuk-hint">
-          It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’.
-        </span>
-        <input class="govuk-input govuk-input--width-10" id="national-insurance-number" name="national-insurance-number" type="text" aria-describedby="national-insurance-number-hint" spellcheck="false">
-      </div>
 
-      <form class="form" action="sortcode" method="post">
 
-      <button class="govuk-button">Continue</button>
+        {{ govukInput({
+          label: {
+            text: "What is your National Insurance number?",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          },
+          hint: {
+            text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-20",
+          id: "postcode",
+          name: "postcode"
+        }) }}
 
-      </form>
+        <button class="govuk-button">Continue</button>
+
     </div>
-
   </div>
-
+</form>
 {% endblock %}
