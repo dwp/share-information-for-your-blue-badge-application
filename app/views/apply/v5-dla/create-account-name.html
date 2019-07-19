@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Name
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "start"
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="data-match-postcode" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Create account</h1>
+
+      <p class="govuk-body-l">Enter your name.</p>
+      
+
+      <div class="govuk-form-group">
+
+          {{ govukInput({
+            label: {
+              text: "First name"
+            },
+            id: "first-name",
+            name: "first-name",
+            classes: "govuk-!-width-three-quarters",
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+
+
+          {{ govukInput({
+            label: {
+              text: "Last name"
+            },
+            id: "last-name",
+            name: "last-name",
+            classes: "govuk-!-width-three-quarters",
+            attributes: {
+              spellcheck: "false"
+            }
+          }) }}
+      </div>
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+    </div>
+  </div>
+</form>
+{% endblock %}

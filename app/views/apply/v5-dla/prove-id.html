@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Sign in 
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="start">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Sign in using Government Gateway</h1>
+
+      <form class="form" action="statement-standard" method="post">
+
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="width-20">
+        Government Gateway user ID
+        </label>
+
+        <span id="id-hint" class="govuk-hint">
+          This could be up to 12 characters.
+        </span>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+        </div>
+
+        <div class="govuk-form-group">
+        <label class="govuk-label" for="width-20">
+        Password
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="password">
+        </div>
+
+
+        <button class="govuk-button">Sign in</button>
+
+        <p><a href="#">Create sign in details</a></p>
+
+        <h2 class="govuk-heading-m">Problems signing in</h2>
+        <p><a href="#">I have forgotten my password</a><br />
+          <a href="#">I have forgotten my Government Gateway user ID</a></p>
+
+        <p><a href="#">Get help with this page</a></p>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

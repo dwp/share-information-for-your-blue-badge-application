@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Carer's Allowance
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="gp-surgery-uhp">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="identity-not-confirmed" method="post">
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+    
+          <span class="govuk-caption-xl">Prove who you are</span>
+
+    {% set carerHtml %}
+      {{ govukInput({
+        id: "carers-name",
+        name: "carers-name",
+        classes: "govuk-input--width-20",
+        label: {
+          text: "Enter their full name"
+        },
+        attributes: {
+          spellcheck: "false"
+        }
+      }) }}
+    {% endset -%}
+
+    {{ govukRadios({
+      idPrefix: "carers-allowance",
+      name: "carers-allowance",
+      fieldset: {
+        legend: {
+          text: "Does anybody get Carer's Allowance for looking after you?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "Yes",
+          text: "Yes",
+          conditional: {
+            html: carerHtml
+          }
+        },
+        {
+          value: "No",
+          text: "No"
+        },
+        {
+          value: "not-sure",
+          text: "I don't know"
+        }
+      ]
+    }) }}
+
+    <button class="govuk-button">Continue</button>
+
+    </div>
+  </div>
+</form>
+{% endblock %}

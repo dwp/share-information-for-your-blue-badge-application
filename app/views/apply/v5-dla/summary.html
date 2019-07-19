@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Summary
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="identity-confirmed">Back</a>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<form class="form" action="contact-pref" method="post">
+
+<div class="govuk-grid-row guidance-layout" style="margin-right:0; margin-left:0">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">Share your DLA information</h1>
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+      <p class="govuk-!-margin-top-2"></p>
+
+      <p>If you continue, the Department for Work and Pensions will share your Disability Living Allowance (DLA) information with <strong>Rotherham Metropolitan Borough Council</strong>.</p>
+
+      <p>This is so they can check if you can get a Blue Badge.</p>
+
+      <p>Only the DLA information needed to check if you can get a Blue Badge will be shared.</p>
+
+      <button class="govuk-button">I understand – share with my council</button>
+
+    </div>
+
+
+  </div>
+
+
+  {% endblock %}
