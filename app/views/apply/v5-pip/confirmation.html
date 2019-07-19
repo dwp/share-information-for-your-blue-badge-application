@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Complete
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    
+
+      {{ govukPanel({
+        titleText: "Shared",
+        html: " Your DLA information has been shared with <strong>Rotherham Metropolitan Borough Council</strong>"
+      }) }}
+
+      <!-- <p>You'll get a confirmation text message in the next 24 hours.</p> -->
+      <!-- Conditioinal message depending on if user has given mobile numbner or email address -->
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>You'll get an email or text confirmation in the next 24 hours.</p>
+    
+
+      <!-- <p><a href="https://www.gov.uk/blue-badge-scheme-information-council">
+        Find your council
+      </a></p> -->
+      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

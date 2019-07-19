@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Postcode
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "data-match-name"
+    }) }}
+
+{% endblock %}
+
+{% block content %}
+<form class="form" action="data-match-dob" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-xl">Prove who you are</span>
+
+
+        {{ govukInput({
+          label: {
+            text: "What is your postcode?",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          },
+          classes: "govuk-input--width-10",
+          id: "postcode",
+          name: "postcode"
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+    </div>
+  </div>
+</form>
+{% endblock %}

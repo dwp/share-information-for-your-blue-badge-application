@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  NINo
+{% endblock %}
+
+{% block beforeContent %}
+  {% include '../../includes/phase-banner.njk' %}
+  <a class="govuk-back-link" href="javascript:history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="data-match-dob" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-xl">Prove who you are</span>
+
+
+        {{ govukInput({
+          label: {
+            text: "What is your National Insurance number?",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          },
+          hint: {
+            text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+          },
+          classes: "govuk-input--width-20",
+          id: "postcode",
+          name: "postcode"
+        }) }}
+
+        <button class="govuk-button">Continue</button>
+
+    </div>
+  </div>
+</form>
+{% endblock %}
