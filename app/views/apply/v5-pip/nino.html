@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="data-match-dob">Back</a>
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}
@@ -30,6 +30,9 @@
           id: "postcode",
           name: "postcode"
         }) }}
+
+
+        <p><a href="">I don't know my national insurance number</a></p>
 
         <button class="govuk-button">Continue</button>
 

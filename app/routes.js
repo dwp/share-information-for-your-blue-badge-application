@@ -3,6 +3,7 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
+
 router.get('/apply/v2/data-match-1', (req, res, next) => {
     if(req.session.data.data == 'clear') {
         req.session.data['first-name'] = ''
@@ -18,6 +19,8 @@ router.get('/apply/v2/data-match-1', (req, res, next) => {
     next();
     //res.render('apply/v2/data-match-1');
 })
+
+
 
 router.post('/apply/v2/data-match-1', (req, res, next) => {
     if(!req.session.data.organisation) {
@@ -50,5 +53,29 @@ router.post('/apply/v2/summary', (req, res, next) => {
         res.status(302).redirect('contact-details');
     }
 })
+
+// Generic 'next page' rule
+
+router.post('*',
+function(req,
+res, 
+next) {
+
+    console.log(req.body)
+
+    if (req.body['next-page']) {
+
+        res.redirect(req.body['next-page'])
+
+    } else {
+
+        next()
+
+    }
+
+})
+
+
+
 
 module.exports = router

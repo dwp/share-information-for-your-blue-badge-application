@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="summary">Back</a>
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}
@@ -17,16 +17,36 @@
 
     <form id="form" method="post" action="confirmation">
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-fieldset__heading">
-            Do you want confirmation that your DLA information has been shared?
-          </h1>
-        </legend>
-        <span id="contact-hint" class="govuk-hint">
-        Your contact details will only be used to confirm your DLA information has been shared.
-        </span>
+        {% if data['thirdParty'] == 'yes' %}
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you want confirmation that the DLA information has been shared?
+                </h1>
+              </legend>
+              <span id="contact-hint" class="govuk-hint">
+              Contact details will only be used to confirm the DLA information has been shared.
+              </span>
+        
+
+        {% else %}
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you want confirmation that your DLA information has been shared?
+                </h1>
+              </legend>
+              <span id="contact-hint" class="govuk-hint">
+              Your contact details will only be used to confirm your DLA information has been shared.
+              </span>
+
+        {% endif %}
+
+   
 
         <div class="govuk-radios" data-module="radios">
           <div class="govuk-radios__item">

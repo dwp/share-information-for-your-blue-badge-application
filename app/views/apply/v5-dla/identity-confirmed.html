@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% include '../../includes/phase-banner.njk' %}
-<a class="govuk-back-link" href="carers-name">Back</a>
+  {% include '../../includes/phase-banner.njk' %}
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}
@@ -15,10 +15,14 @@
   <div class="govuk-grid-column-full-width">
     <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">You've proved who you are</h1>
 
-    <p>The Department for Work and Pensions has found your Disability Living Allowance information.</p>
-
+        {% if data['thirdParty'] == 'yes' %}
+            <h1 class="govuk-heading-l">You've proved who they are</h1>
+            <p>The Department for Work and Pensions has found their Disability Living Allowance information.</p>
+        {% else %}
+            <h1 class="govuk-heading-l">You've proved who you are</h1>
+            <p>The Department for Work and Pensions has found your Disability Living Allowance information.</p>
+        {% endif %}
 
 
       <button class="govuk-button">Continue</button>

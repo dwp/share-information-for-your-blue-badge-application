@@ -5,13 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% include '../../includes/phase-banner.njk' %}
-
-    {{ govukBackLink({
-      text: "Back",
-      href: "data-match-name"
-    }) }}
-
+  {% include '../../includes/phase-banner.njk' %}
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}

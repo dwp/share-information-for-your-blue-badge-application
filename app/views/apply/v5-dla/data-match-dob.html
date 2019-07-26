@@ -5,13 +5,8 @@
 {% endblock %}
 
 {% block beforeContent %}
-{% include '../../includes/phase-banner.njk' %}
-
-    {{ govukBackLink({
-      text: "Back",
-      href: "data-match-postcode"
-    }) }}
-
+  {% include '../../includes/phase-banner.njk' %}
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}
@@ -20,7 +15,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <span class="govuk-caption-xl">Prove who you are</span>
+
+        {% if data['thirdParty'] == 'yes' %}
+              <span class="govuk-caption-xl">Prove who they are</span>
+              <h1 class="govuk-heading-l">What is their date of birth?</h1>
+          {% else %}
+              <span class="govuk-caption-xl">Prove who you are</span>
+              <h1 class="govuk-heading-l">What is your date of birth?</h1>
+          {% endif %}
 
 
         {{ govukDateInput({
@@ -28,8 +30,6 @@
           namePrefix: "dob",
           fieldset: {
             legend: {
-              text: "What is your date of birth?",
-              isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },

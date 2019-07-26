@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="start">Back</a>
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}
@@ -35,7 +35,7 @@
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="no" aria-controls="conditional-how-contacted-conditional-1" aria-expanded="false">
             <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-1">
-              Someone elses
+              Someone else's
             </label>
           </div>
         </div>
@@ -60,7 +60,7 @@
       e.preventDefault();
 
       if($('#how-contacted-conditional-1').is(':checked')) window.location = 'prove-id'
-      if($('#how-contacted-conditional-2').is(':checked')) window.location = 'prove-id'
+      if($('#how-contacted-conditional-2').is(':checked')) window.location = 'third-party-info'
     })
   })
 </script>

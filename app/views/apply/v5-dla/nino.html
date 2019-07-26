@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   {% include '../../includes/phase-banner.njk' %}
-  <a class="govuk-back-link" href="data-match-dob">Back</a>
+  {% include '../../includes/back-button.njk' %}
 {% endblock %}
 
 {% block content %}
@@ -14,22 +14,50 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <span class="govuk-caption-xl">Prove who you are</span>
+
+        {% if data['thirdParty'] == 'yes' %}
+
+        <span class="govuk-caption-xl">Prove who they are</span>
+        <h1 class="govuk-heading-l">What is their date of birth?</h1>
+            {{ govukInput({
+              label: {
+                classes: "govuk-label--l"
+              },
+              hint: {
+                text: "It’s on their National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+              },
+              classes: "govuk-input--width-20",
+              id: "postcode",
+              name: "postcode"
+            }) }}
+
+            <p><a href="">I don't know their national insurance number</a></p>
+            
+          {% else %}
+
+              <span class="govuk-caption-xl">Prove who you are</span>
+              <h1 class="govuk-heading-l">What is your date of birth?</h1>
+
+              {{ govukInput({
+                label: {
+                  classes: "govuk-label--l"
+                },
+                hint: {
+                  text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
+                },
+                classes: "govuk-input--width-20",
+                id: "postcode",
+                name: "postcode"
+              }) }}
+  
+              <p><a href="">I don't know my national insurance number</a></p>
+
+          {% endif %}
+      
 
 
-        {{ govukInput({
-          label: {
-            text: "What is your National Insurance number?",
-            isPageHeading: true,
-            classes: "govuk-label--l"
-          },
-          hint: {
-            text: "It’s on your National Insurance card, benefit letter, payslip or P60. For example, ‘QQ 12 34 56 C’."
-          },
-          classes: "govuk-input--width-20",
-          id: "postcode",
-          name: "postcode"
-        }) }}
+
+       
 
         <button class="govuk-button">Continue</button>
 
