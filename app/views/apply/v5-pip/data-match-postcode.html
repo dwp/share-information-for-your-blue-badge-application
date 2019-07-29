@@ -14,13 +14,18 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <span class="govuk-caption-xl">Prove who you are</span>
+
+        {% if data['thirdParty'] == 'yes' %}
+              <span class="govuk-caption-xl">Prove who they are</span>
+              <h1 class="govuk-heading-l">What is their postcode?</h1>
+          {% else %}
+              <span class="govuk-caption-xl">Prove who you are</span>
+              <h1 class="govuk-heading-l">What is your postcode?</h1>
+          {% endif %}
 
 
         {{ govukInput({
           label: {
-            text: "What is your postcode?",
-            isPageHeading: true,
             classes: "govuk-label--l"
           },
           classes: "govuk-input--width-10",

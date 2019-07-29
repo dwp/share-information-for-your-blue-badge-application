@@ -15,15 +15,19 @@
   <div class="govuk-grid-column-full-width">
     <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">You've proved who you are</h1>
 
-    <p>The Department for Work and Pensions has found your Personal Independence Payment information.</p>
-
+        {% if data['thirdParty'] == 'yes' %}
+            <h1 class="govuk-heading-l">You've proved who they are</h1>
+            <p>The Department for Work and Pensions has found their Disability Living Allowance information.</p>
+        {% else %}
+            <h1 class="govuk-heading-l">You've proved who you are</h1>
+            <p>The Department for Work and Pensions has found your Disability Living Allowance information.</p>
+        {% endif %}
 
 
       <button class="govuk-button">Continue</button>
 
-     </div>
+     </div> 
   </div>
 </div>
 

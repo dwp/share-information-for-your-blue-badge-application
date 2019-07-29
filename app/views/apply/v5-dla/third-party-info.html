@@ -12,7 +12,12 @@
 {% from "date-input/macro.njk" import govukDateInput %}
 
 {% block content %}
-<form id="form" method="post" action="prove-id">
+
+
+
+
+
+<form id="form" method="post" action="prove-id-third-party">
 
   <div class="govuk-grid-row">
 
@@ -40,16 +45,3 @@
 
 
 
-{% block pageScripts %}
-  <script>
-    $( document ).ready(function() {
-      $('#submit').on('click', function(e){
-        e.preventDefault();
-
-        if($('#third-party-1').is(':checked')) window.location = 'statement-standard'
-        if($('#third-party-2').is(':checked')) window.location = 'statement-standard'
-      })
-    })
-  </script>
-
-{% endblock %}

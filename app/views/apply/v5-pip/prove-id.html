@@ -11,6 +11,12 @@
 
 {% block content %}
 
+{% if data['thirdParty'] == 'yes' %}
+<script>
+    window.location.href = 'third-party-info'
+</script>
+{% endif %}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 

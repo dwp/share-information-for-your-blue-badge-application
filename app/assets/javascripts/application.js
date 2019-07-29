@@ -13,9 +13,7 @@ $(document).ready(function () {
 
 function 
 nextPageBasedOnSelection($radioObject) {
-
     if (nextPageRoutes) {
-
         for (let
 index = 
 0; index < 
