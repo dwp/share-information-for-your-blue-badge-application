@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+<!-- Adds a class to increase vertical spacing for pages without a back button -->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% block pageTitle %}
+  Complete
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if data['thirdParty'] == 'yes' %}
+        
+              <div class="govuk-panel govuk-panel--confirmation">
+                  <h1 class="govuk-panel__title">
+                      Shared
+                  </h1>
+                  <div class="govuk-panel__body">
+                      The 
+                      
+                      {% if data['path'] == 'pip' %}
+                        PIP
+                      {% else %}
+                        DLA 
+                      {% endif %} 
+                      
+                      information has been shared with <strong>Rotherham Metropolitan Borough Council</strong>
+                  </div>
+                </div>
+
+
+        {% else %}
+
+              <div class="govuk-panel govuk-panel--confirmation">
+                  <h1 class="govuk-panel__title">
+                      Shared
+                  </h1>
+                  <div class="govuk-panel__body">
+                      Your 
+                      
+                      {% if data['path'] == 'pip' %}
+                        PIP
+                      {% else %}
+                        DLA 
+                      {% endif %} 
+                      
+                      information has been shared with <strong>Rotherham Metropolitan Borough Council</strong>
+                  </div>
+     
+         {% endif %}
+
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>You'll get an email or text confirmation in the next 24 hours.</p>
+    
+      <p><a href="https://www.gov.uk/service-manual/user-centred-design/resources/patterns/feedback-pages.html">What did you think of this service?</a> (takes 30 seconds)</p>
+
+
+    </div>
+
+  </div>
+
+{% endblock %}

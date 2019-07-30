@@ -35,13 +35,22 @@
         <li>test if users understand what has happened at the end of the service</li>
       </ul>
 
-      <p>
-        <a href="/apply/v5-pip/start" class="govuk-button">Open prototype - PIP claimant journey</a>
-      </p>
 
-      <p>
-        <a href="/apply/v5-dla/start" class="govuk-button">Open prototype - DLA claimant journey</a>
-      </p>
+
+      <form class="form" action="/apply/v5/start" method="post">
+      <button type="submit" class="govuk-button" data-module="govuk-button" name="path" value="pip" >
+          Open prototype - PIP claimant journey
+        </button>
+
+        <br />
+
+        <button type="submit" class="govuk-button" data-module="govuk-button" name="path" value="dla" >
+            Open prototype - DLA claimant journey
+          </button>
+      </form>
+
+
+
 
        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 

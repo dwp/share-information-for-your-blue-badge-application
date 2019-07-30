@@ -23,11 +23,23 @@
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Do you want confirmation that the DLA information has been shared?
+                  Do you want confirmation that the 
+                    {% if data['path'] == 'pip' %}
+                  PIP
+                    {% else %}
+                  DLA 
+                    {% endif %}
+                  information has been shared?
                 </h1>
               </legend>
               <span id="contact-hint" class="govuk-hint">
-              Contact details will only be used to confirm the DLA information has been shared.
+              Contact details will only be used to confirm the 
+              {% if data['path'] == 'pip' %}
+              PIP
+                {% else %}
+              DLA 
+                {% endif %}
+              information has been shared.
               </span>
         
 
@@ -37,11 +49,23 @@
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Do you want confirmation that your DLA information has been shared?
+                  Do you want confirmation that your 
+                    {% if data['path'] == 'pip' %}
+                  PIP
+                    {% else %}
+                  DLA 
+                  {% endif %}
+                  information has been shared?
                 </h1>
               </legend>
               <span id="contact-hint" class="govuk-hint">
-              Your contact details will only be used to confirm your DLA information has been shared.
+              Your contact details will only be used to confirm your 
+              {% if data['path'] == 'pip' %}
+              PIP
+                {% else %}
+              DLA 
+                {% endif %}
+              information has been shared.
               </span>
 
         {% endif %}

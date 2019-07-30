@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GP Surgery
+{% endblock %}
+
+{% block beforeContent %}
+{% include '../../includes/phase-banner.njk' %}
+<a class="govuk-back-link" href="nino">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="nino" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {% if data['thirdParty'] == 'yes' %}
+          <span class="govuk-caption-xl">Prove who they are</span>
+
+            {{ govukInput({
+              label: {
+                text: "What is the name of their GP surgery?",
+                isPageHeading: true,
+                classes: "govuk-label--l"
+              },
+              classes: "govuk-input--width-20",
+              id: "postcode",
+              name: "postcode"
+            }) }}
+
+          <p><a href="identity-not-confirmed">I don't know the name of their GP surgery</a></p>
+        {% else %}
+          <span class="govuk-caption-xl">Prove who you are</span>
+
+            {{ govukInput({
+              label: {
+                text: "What is the name of your GP surgery?",
+                isPageHeading: true,
+                classes: "govuk-label--l"
+              },
+              classes: "govuk-input--width-20",
+              id: "postcode",
+              name: "postcode"
+            }) }}
+
+          <p><a href="identity-not-confirmed">I don't know the name of my GP surgery</a></p>
+        {% endif %}
+
+      
+
+        <button class="govuk-button">Continue</button>
+
+
+
+      </div>
+    </div>
+</form>
+
+{% endblock %}
