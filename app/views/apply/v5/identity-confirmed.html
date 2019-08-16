@@ -18,10 +18,29 @@
 
         {% if data['thirdParty'] == 'yes' %}
             <h1 class="govuk-heading-l">You've proved who they are</h1>
-            <p>The Department for Work and Pensions has found their Disability Living Allowance information.</p>
+            <p>The Department for Work and Pensions has found their 
+              
+                {% if data['path'] == 'pip' %}
+                  Personal Independence Payment
+                {% else %}
+                  Disability Living Allowance 
+                {% endif %}
+
+                information.</p>
         {% else %}
             <h1 class="govuk-heading-l">You've proved who you are</h1>
-            <p>The Department for Work and Pensions has found your Disability Living Allowance information.</p>
+            <p>The Department for Work and Pensions has found your 
+              
+              {% if data['path'] == 'pip' %}
+                Personal Independence Payment
+              {% else %}
+                Disability Living Allowance 
+              {% endif %}
+              
+              
+              
+              
+              information.</p>
         {% endif %}
 
 
